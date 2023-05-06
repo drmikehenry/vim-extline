@@ -121,6 +121,8 @@ Version 0.2.1    Date    2023-05-06                 *extline-changelog-0.2.1*
     `len(title)` returned the size in bytes rather than logical characters,
     causing overly long line lengths for multi-byte characters.
 
+  - Allow multi-byte characters for "horizontal line update".
+
 Version 0.2.0    Date    2013-10-03                 *extline-changelog-0.2.0*
 
   - Partition into plugin and autoload components.
