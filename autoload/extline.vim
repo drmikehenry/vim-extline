@@ -124,19 +124,19 @@ endfunction
 
 function! extline#updateTitle(tg)
     let titleLineNum = a:tg['titleLineNum']
-    let titleLen = len(a:tg['title'])
+    let title = a:tg['title']
     let underChar = a:tg['underChar']
     let overChar = a:tg['overChar']
     let titlePrefix = a:tg['titlePrefix']
 
     if overChar != ''
-        let lineText = titlePrefix . repeat(overChar, titleLen)
+        let lineText = titlePrefix . substitute(title, '.', overChar, 'g')
         exe (titleLineNum - 1) . 's/^.*/\=lineText/g'
     endif
     exe titleLineNum
     normal! $
     if underChar != ''
-        let lineText = titlePrefix . repeat(underChar, titleLen)
+        let lineText = titlePrefix . substitute(title, '.', underChar, 'g')
         exe (titleLineNum + 1) . 's/^.*/\=lineText/g'
         normal! $
     endif
